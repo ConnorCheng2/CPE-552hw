@@ -54,18 +54,18 @@ public class ParseText {
        Map<String, Integer> shortwords = ParseText.readWords("shortwords.txt");
        for(int i = 0; i< article.length; i++){
            if (shortwords.containsKey(article[i])){
-               if (statRes.containsKey(article[i-1])){
-                   statRes.put(article[i-1], statRes.get(article[i-1])+1);
+               if (statRes.containsKey(article[i-1]+" "+article[i])){
+                   statRes.put(article[i-1]+" "+article[i], statRes.get(article[i-1]+" "+article[i])+1);
                }
                else{
-                   statRes.put(article[i-1], 1);
+                   statRes.put(article[i-1]+" "+article[i], 1);
                }
              
-               if (statRes.containsKey(article[i+1])){
-                   statRes.put(article[i+1], statRes.get(article[i+1])+1);
+               if (statRes.containsKey(article[i]+" "+article[i+1])){
+                   statRes.put(article[i]+" "+article[i+1], statRes.get(article[i]+" "+article[i+1])+1);
                }
                else{
-                   statRes.put(article[i+1], 1);
+                   statRes.put(article[i]+" "+article[i+1], 1);
                }                  
        }    
        }
